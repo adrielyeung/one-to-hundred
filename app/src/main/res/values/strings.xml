@@ -1,0 +1,71 @@
+<resources>
+    <!-- App and section names -->
+    <string name="app_name">One To Hundred</string>
+    <string name="start">Start</string>
+    <string name="instruction">Instructions</string>
+    <string name="action_settings">Settings</string>
+    <string name="exit_game">Exit Game</string>
+    <string name="exit_round">Exit Round</string>
+    <string name="confirm_name_title">Confirm Name</string>
+    <string name="bomb">Bomb</string>
+    <string name="to">To</string>
+    <string name="one">1</string>
+    <string name="hundred">100</string>
+
+    <!-- Navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="to_main">Back to main page</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="confirm">Confirm</string>
+    <string name="change">Change</string>
+
+    <!-- Instruction -->
+    <string name="instruction_1">1. The game consists of 1 judge and 2–9 players.</string>
+    <string name="instruction_2">2. The judge will come up with a number between 1 and 100
+        (excluding the two numbers). Let\'s call it the \"bomb number\".</string>
+    <string name="instruction_3">3. The first player will select a number between 1 and 100,
+        trying to avoid the bomb number.</string>
+    <string name="instruction_4">4. If the first player did not hit the bomb number, the range of
+        numbers available is reduced to between 1/100 and their chosen value, whichever contains
+        the bomb number.</string>
+    <string name="instruction_5">5. The next players keep on selecting numbers and reducing the
+        range of available numbers until one unlucky player hits the bomb :(</string>
+    <string name="instruction_6">Example: The bomb number is 60, and the first player selects 50
+        among 1 to 100.</string>
+    <string name="instruction_7">The available range is reduced to between 50 to 100.</string>
+    <string name="instruction_8">The second player selects 70.</string>
+    <string name="instruction_9">The available range is reduced to between 50 to 70.</string>
+    <string name="instruction_10">The third player selects 60, which is the bomb number. BOOM!
+        I guess he has to pay the bill…?</string>
+
+    <!-- Players -->
+    <string name="judge">Judge</string>
+    <string name="judge_name">Judge: %s</string>
+    <string name="player">Player %d</string>
+    <string name="player_name">Player %d: %s</string>
+    <string name="any_player">Any player</string>
+
+    <!-- Guide and hint -->
+    <string name="guide_number_of_players">Enter the number of players (excluding judge).</string>
+    <string name="guide_num_between">Enter a number between:</string>
+    <string name="guide_enter_name">Enter your name:</string>
+    <string name="guide_enter_bomb">Select a bomb number</string>
+    <string name="guide_guess_bomb">The bomb number is in the below range.
+        Guess a number avoiding the bomb!</string>
+    <string name="hint_number">Enter a number</string>
+    <string name="hint_name">Enter your name</string>
+    <string name="exit_game_prompt">Are you sure you want to leave the game?</string>
+    <string name="exit_round_prompt">Are you sure you want to leave this round?</string>
+    <string name="confirm_prompt">Please confirm the number you have just entered is</string>
+    <string name="confirm_name">Please confirm your name is %s. If confirm, pass the device to %s.</string>
+    <string name="pass_device_prompt">If correct, please hit "Confirm" and pass the device to %s.</string>
+    <string name="finish_game">BOOM! %s, you have triggered the bomb!</string>
+
+    <!-- Error messages -->
+    <string name="num_empty_error">Please enter a number.</string>
+    <string name="name_empty_error">Please enter a name.</string>
+    <string name="num_not_in_range_error">The entered number needs to be between %d and %d,
+        not including the ends.</string>
+</resources>

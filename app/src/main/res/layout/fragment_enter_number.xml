@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2303A9F4"
+    android:orientation="vertical"
+    tools:context=".fragment.EnterNumberFragment">
+
+    <TextView
+        android:id="@+id/playerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-black"
+        android:foregroundGravity="center"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="@string/any_player"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/guideTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="@string/guide_number_of_players"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/numBetweenTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:gravity="center_vertical"
+        android:text="@string/guide_num_between"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/numMin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_toStartOf="@id/arrowImage"
+            android:layout_toLeftOf="@id/arrowImage"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="@string/one"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="#546E7A"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/arrowImage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="#3F51B5"
+            android:contentDescription="@string/to"
+            android:src="@android:drawable/ic_media_play" />
+
+        <TextView
+            android:id="@+id/numMax"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@id/arrowImage"
+            android:layout_toRightOf="@id/arrowImage"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="@string/hundred"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="#546E7A"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:autofillHints="0"
+        android:ems="10"
+        android:hint="@string/hint_number"
+        android:inputType="number"
+        android:minHeight="32dp"
+        android:textColorHint="#546E7A" />
+
+    <Button
+        android:id="@+id/nextStepButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:text="@string/next"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#00695C"
+        app:backgroundTint="#8BC34A" />
+</LinearLayout>

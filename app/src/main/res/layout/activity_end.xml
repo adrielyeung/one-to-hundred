@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="#2303A9F4"
+    android:orientation="vertical"
+    tools:context="com.adriel.onetohundred.EndActivity">
+
+    <TextView
+        android:id="@+id/endMsgTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="@string/finish_game"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <ImageView
+        android:id="@+id/bombImageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/bomb"
+        app:srcCompat="@drawable/bomb" />
+
+    <Button
+        android:id="@+id/mainMenuButton"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:text="@string/to_main"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#00695C"
+        app:backgroundTint="#8BC34A" />
+
+</LinearLayout>
