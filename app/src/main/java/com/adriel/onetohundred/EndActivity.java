@@ -1,12 +1,10 @@
 package com.adriel.onetohundred;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class EndActivity extends AppCompatActivity {
+public class EndActivity extends NoTitleActivity {
 
     Button mainButton;
     TextView endMsgTextView;
