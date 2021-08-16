@@ -1,17 +1,15 @@
 package com.adriel.onetohundred;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.app.AlertDialog;
 import android.os.Bundle;
 
+import androidx.viewpager2.widget.ViewPager2;
+
 import com.adriel.onetohundred.adapter.StartActivityAdapter;
 import com.adriel.onetohundred.fragment.ConfirmFragment;
-import com.adriel.onetohundred.fragment.EnterNameFragment;
 import com.adriel.onetohundred.fragment.EnterNumberFragment;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends NoTitleActivity {
 
     private ViewPager2 viewPager2;
 

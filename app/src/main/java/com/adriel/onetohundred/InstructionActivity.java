@@ -6,12 +6,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class InstructionActivity extends AppCompatActivity {
+public class InstructionActivity extends NoTitleActivity {
 
     private List<String> instruction_steps = new ArrayList<>();
     private int pos = 0;
