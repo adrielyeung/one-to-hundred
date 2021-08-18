@@ -31,13 +31,14 @@ import java.util.List;
  */
 public class EnterNameFragment extends Fragment {
 
+    private int numOfPlayers;
+    private int stage = 0;
+    private List<String> nameList = new ArrayList<>();
+
     private TextView playerTextView;
     private EditText editText;
     private Button nextStepButton;
     private SharedViewModel viewModel;
-    private int numOfPlayers;
-    private int stage = 0;
-    private List<String> nameList = new ArrayList<>();
 
     public EnterNameFragment() {
         // Required empty public constructor
@@ -90,9 +91,8 @@ public class EnterNameFragment extends Fragment {
             String name = String.valueOf(editText.getText());
 
             if ("".equals(name)) {
-                Toast errToast = Toast.makeText(getContext(),
-                        R.string.name_empty_error, Toast.LENGTH_LONG);
-                errToast.show();
+                Toast.makeText(getContext(),
+                        R.string.name_empty_error, Toast.LENGTH_LONG).show();
                 return;
             }
 

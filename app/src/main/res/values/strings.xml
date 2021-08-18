@@ -64,6 +64,8 @@
     <string name="finish_game">BOOM! %s, you have triggered the bomb!</string>
 
     <!-- Error messages -->
+    <string name="first_page_error">This is the first page.</string>
+    <string name="last_page_error">This is the last page.</string>
     <string name="num_empty_error">Please enter a number.</string>
     <string name="name_empty_error">Please enter a name.</string>
     <string name="num_not_in_range_error">The entered number needs to be between %d and %d,

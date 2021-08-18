@@ -6,8 +6,8 @@ import android.widget.TextView;
 
 public class EndActivity extends NoTitleActivity {
 
-    Button mainButton;
-    TextView endMsgTextView;
+    private Button mainButton;
+    private TextView endMsgTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

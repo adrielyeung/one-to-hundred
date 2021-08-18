@@ -12,9 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.adriel.onetohundred.GameActivity;
 import com.adriel.onetohundred.R;
-import com.adriel.onetohundred.StartActivity;
+import com.adriel.onetohundred.InGameActivity;
 import com.adriel.onetohundred.util.TransferObject;
 import com.adriel.onetohundred.viewmodel.SharedViewModel;
 
@@ -29,16 +28,18 @@ public class ConfirmFragment extends Fragment {
 
     // Argument to check whether activity is the GameActivity
     private static final String ARG_IN_GAME = "in_game";
+
     private boolean inGame;
+    private int numberEntered;
+    private String thisPlayerTitle;
+    private String nextPlayerTitle;
+
     private TextView playerTextView;
     private TextView numTextView;
     private TextView passDeviceTextView;
     private Button confirmButton;
     private Button changeButton;
     private SharedViewModel viewModel;
-    private int numberEntered;
-    private String thisPlayerTitle;
-    private String nextPlayerTitle;
 
     public ConfirmFragment(boolean inGame) {
         this.inGame = inGame;
@@ -110,23 +111,23 @@ public class ConfirmFragment extends Fragment {
 
     View.OnClickListener confirmNumPlayersListener = view -> {
         // Scroll to next fragment (EnterNameFragment)
-        ((StartActivity)getActivity()).setViewPager(2);
+        ((InGameActivity)getActivity()).setViewPager(2);
     };
 
     View.OnClickListener changeNumPlayersListener = view -> {
         // Scroll to previous fragment (EnterNumberFragment)
-        ((StartActivity)getActivity()).setViewPager(0);
+        ((InGameActivity)getActivity()).setViewPager(0);
     };
 
     View.OnClickListener confirmGuessNumberListener = view -> {
         TransferObject.getInstance().setConfirmed(true);
-        ((GameActivity)getActivity()).setViewPager(0);
+        ((InGameActivity)getActivity()).setViewPager(0);
         viewModel.setData(TransferObject.getInstance());
     };
 
     View.OnClickListener changeGuessNumberListener = view ->  {
         TransferObject.getInstance().setConfirmed(false);
-        ((GameActivity)getActivity()).setViewPager(0);
+        ((InGameActivity)getActivity()).setViewPager(0);
         viewModel.setData(TransferObject.getInstance());
     };
 }
