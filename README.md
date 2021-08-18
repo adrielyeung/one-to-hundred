@@ -9,7 +9,7 @@ Android game app where each player (of 2-9 players) takes turns to guess a "bomb
 2. Open the project directory in Android Studio.
 
 ## Description
-The app consists of 5 Activities and 3 Fragments, namely:
+The app consists of 8 Activities and 4 Fragments, namely:
 
 **Activities**
 1. NoTitleActivity (base class)
@@ -33,8 +33,12 @@ Base class for all above activities, which removes the app title bar on screen.
 ### 2. DisplayActivity extends NoTitleActivity
 Provides a template for scrolling through pages of text (DisplayFragments), with a title bar on top.
 
+Abstract methods: ```setDisplayTitle()``` sets text on title bar, ```insertDisplay()``` inserts the list of text to display in sequence.
+
 ### 3. InGameActivity extends NoTitleActivity
 Provides a blank template for switching between different fragments (EnterNameFragment, EnterNumberFragment and ConfirmFragment).
+
+Abstract methods: ```setupViewPager()``` sets which Fragments to use.
 
 ### 4. MainActivity extends NoTitleActivity
 <img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/main.PNG" alt="MainActivity" width="25%" height="25%">
