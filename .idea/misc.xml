@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/activity_display.xml" value="0.2" />
         <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/activity_end.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/activity_game.xml" value="0.12335359675785208" />
         <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/activity_instruction.xml" value="0.17395833333333333" />
@@ -10,6 +11,7 @@
         <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/activity_start.xml" value="0.176" />
         <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/fragment_blank.xml" value="0.16394927536231885" />
         <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/fragment_confirm.xml" value="0.1" />
+        <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/fragment_display.xml" value="0.1" />
         <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/fragment_enter_name.xml" value="0.1" />
         <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/fragment_enter_num_players.xml" value="0.17395833333333333" />
         <entry key="..\:/Users/Adriel/AndroidStudio/OneToHundred/app/src/main/res/layout/fragment_enter_number.xml" value="0.16" />

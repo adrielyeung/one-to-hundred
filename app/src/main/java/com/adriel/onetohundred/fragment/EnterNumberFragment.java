@@ -16,9 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.adriel.onetohundred.EndActivity;
-import com.adriel.onetohundred.GameActivity;
+import com.adriel.onetohundred.InGameActivity;
 import com.adriel.onetohundred.R;
-import com.adriel.onetohundred.StartActivity;
 import com.adriel.onetohundred.util.InputFilterMinMax;
 import com.adriel.onetohundred.util.TransferObject;
 import com.adriel.onetohundred.viewmodel.SharedViewModel;
@@ -47,12 +46,12 @@ public class EnterNumberFragment extends Fragment {
     private SharedViewModel viewModel;
     private List<String> nameList;
 
-    EditText editText;
-    Button nextStepButton;
-    TextView playerTextView;
-    TextView guideTextView;
-    TextView numMin;
-    TextView numMax;
+    private EditText editText;
+    private Button nextStepButton;
+    private TextView playerTextView;
+    private TextView guideTextView;
+    private TextView numMin;
+    private TextView numMax;
 
     public EnterNumberFragment(boolean inGame) {
         this.inGame = inGame;
@@ -207,8 +206,7 @@ public class EnterNumberFragment extends Fragment {
             try {
                 bombNumber = Integer.parseInt(errMsg);
             } catch (NumberFormatException e) {
-                Toast errToast = Toast.makeText(getContext(), errMsg, Toast.LENGTH_LONG);
-                errToast.show();
+                Toast.makeText(getContext(), errMsg, Toast.LENGTH_LONG).show();
                 return;
             }
 
@@ -219,7 +217,7 @@ public class EnterNumberFragment extends Fragment {
             viewModel.setData(TransferObject.getInstance());
 
             // Scroll to next fragment (ConfirmFragment)
-            ((GameActivity)getActivity()).setViewPager(1);
+            ((InGameActivity)getActivity()).setViewPager(1);
         }
     };
 
@@ -233,19 +231,24 @@ public class EnterNumberFragment extends Fragment {
             try {
                 guessNumber = Integer.parseInt(errMsg);
             } catch (NumberFormatException e) {
-                Toast errToast = Toast.makeText(getContext(), errMsg, Toast.LENGTH_LONG);
-                errToast.show();
+                Toast.makeText(getContext(), errMsg, Toast.LENGTH_LONG).show();
                 return;
             }
 
             TransferObject.getInstance().setInteger(guessNumber);
             TransferObject.getInstance().setThisPlayerTitle(String.valueOf(playerTextView.getText()));
-            TransferObject.getInstance().setNextPlayerTitle(String.format(getString(R.string.player_name),
-                    playerNum+1, TransferObject.getInstance().getStringList().get(playerNum+1)));
+            if (playerNum + 1 >= TransferObject.getInstance().getStringList().size()) {
+                TransferObject.getInstance().setNextPlayerTitle(String.format(getString(R.string.player_name),
+                        1, TransferObject.getInstance().getStringList().get(1)));
+            } else {
+                TransferObject.getInstance().setNextPlayerTitle(String.format(getString(R.string.player_name),
+                        playerNum+1, TransferObject.getInstance().getStringList().get(playerNum+1)));
+            }
+
             viewModel.setData(TransferObject.getInstance());
 
             // Scroll to next fragment (ConfirmFragment)
-            ((GameActivity)getActivity()).setViewPager(1);
+            ((InGameActivity)getActivity()).setViewPager(1);
         }
     };
 
@@ -259,9 +262,8 @@ public class EnterNumberFragment extends Fragment {
             try {
                 numOfPlayers = Integer.parseInt(String.valueOf(editText.getText()));
             } catch (NumberFormatException e) {
-                Toast errToast = Toast.makeText(getContext(),
-                        R.string.num_empty_error, Toast.LENGTH_LONG);
-                errToast.show();
+                Toast.makeText(getContext(),
+                        R.string.num_empty_error, Toast.LENGTH_LONG).show();
                 return;
             }
 
@@ -271,7 +273,7 @@ public class EnterNumberFragment extends Fragment {
             viewModel.setData(TransferObject.getInstance());
 
             // Scroll to next fragment (ConfirmFragment)
-            ((StartActivity)getActivity()).setViewPager(1);
+            ((InGameActivity)getActivity()).setViewPager(1);
         }
     };
 }

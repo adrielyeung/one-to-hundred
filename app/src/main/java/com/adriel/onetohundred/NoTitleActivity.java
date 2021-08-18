@@ -14,4 +14,5 @@ public class NoTitleActivity extends AppCompatActivity {
         // Hide app title bar
         Objects.requireNonNull(getSupportActionBar()).hide();
     }
+
 }
