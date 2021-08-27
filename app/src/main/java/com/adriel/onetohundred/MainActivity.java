@@ -1,43 +1,44 @@
 package com.adriel.onetohundred;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends NoTitleActivity {
 
-    private Button startButton;
-    private Button instructionButton;
+    private static final int SPLASH_TIME = 2000;
+
+    // Animation variables
+    private Animation topAnim, bottomAnim;
+    private ImageView imageView;
+    private TextView appTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startButton = findViewById(R.id.mainMenuButton);
-        instructionButton = findViewById(R.id.instructionButton);
+        // Call animations
+        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
-        configureStartButton();
-        configureInstructionButton();
+        // Hook animation to image
+        imageView = findViewById(R.id.appIcon);
+        appTitle = findViewById(R.id.appTitle);
+
+        imageView.setAnimation(topAnim);
+        appTitle.setAnimation(bottomAnim);
+
+        // Handler to progress to next screen after delaying for SPLASH_TIME secs
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+            // Remove the splash screen or "back" button will return here
+            finish();
+        }, SPLASH_TIME);
     }
 
-    private void configureStartButton() {
-        startButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, StartActivity.class)));
-    }
-
-    private void configureInstructionButton() {
-        instructionButton.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, InstructionActivity.class)));
-    }
-
-    @Override
-    public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle(R.string.exit_game)
-                .setMessage(R.string.exit_game_prompt)
-                .setPositiveButton(R.string.yes, (dialog, which) -> finish())
-                .setNegativeButton(R.string.no, null)
-                .show();
-    }
 }

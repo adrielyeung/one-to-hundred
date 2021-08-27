@@ -6,7 +6,8 @@ import java.util.List;
 public class TransferObject implements Serializable {
 
     // Data storage
-    private Integer integer;
+    private int integer;
+    private int bombNumber;
     private boolean confirmed;
     private String thisPlayerTitle;
     private String nextPlayerTitle;
@@ -23,6 +24,14 @@ public class TransferObject implements Serializable {
         return transferObject;
     }
 
+    public void initialise() {
+        integer = 0;
+        bombNumber = 0;
+        confirmed = false;
+        thisPlayerTitle = null;
+        nextPlayerTitle = null;
+    }
+
     public Integer getInteger() {
         return integer;
     }
@@ -37,6 +46,14 @@ public class TransferObject implements Serializable {
 
     public void setStringList(List<String> stringList) {
         this.stringList = stringList;
+    }
+
+    public Integer getBombNumber() {
+        return bombNumber;
+    }
+
+    public void setBombNumber(Integer bombNumber) {
+        this.bombNumber = bombNumber;
     }
 
     public boolean isConfirmed() {

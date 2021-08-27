@@ -17,8 +17,6 @@ import com.adriel.onetohundred.InGameActivity;
 import com.adriel.onetohundred.util.TransferObject;
 import com.adriel.onetohundred.viewmodel.SharedViewModel;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ConfirmFragment#newInstance} factory method to
@@ -31,8 +29,8 @@ public class ConfirmFragment extends Fragment {
 
     private boolean inGame;
     private int numberEntered;
+    private int bombNumber;
     private String thisPlayerTitle;
-    private String nextPlayerTitle;
 
     private TextView playerTextView;
     private TextView numTextView;
@@ -73,7 +71,7 @@ public class ConfirmFragment extends Fragment {
 
         playerTextView = view.findViewById(R.id.playerTextViewConfirm);
         numTextView = view.findViewById(R.id.numTextViewConfirm);
-        passDeviceTextView = view.findViewById(R.id.passDeviceTextView);
+        passDeviceTextView = view.findViewById(R.id.confirmButtonTextView);
         confirmButton = view.findViewById(R.id.confirmButton);
         changeButton = view.findViewById(R.id.changeButton);
 
@@ -96,8 +94,8 @@ public class ConfirmFragment extends Fragment {
         viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         viewModel.getData().observe(getViewLifecycleOwner(), transferObject -> {
             numberEntered = transferObject.getInteger();
+            bombNumber = transferObject.getBombNumber();
             thisPlayerTitle = transferObject.getThisPlayerTitle();
-            nextPlayerTitle = transferObject.getNextPlayerTitle();
             setLayout();
         });
     }
@@ -105,8 +103,7 @@ public class ConfirmFragment extends Fragment {
     private void setLayout() {
         playerTextView.setText(thisPlayerTitle);
         numTextView.setText(String.valueOf(numberEntered));
-        passDeviceTextView.setText(String.format(getString(R.string.pass_device_prompt),
-                nextPlayerTitle));
+        passDeviceTextView.setText(getString(R.string.confirm_button_prompt));
     }
 
     View.OnClickListener confirmNumPlayersListener = view -> {
@@ -121,11 +118,20 @@ public class ConfirmFragment extends Fragment {
 
     View.OnClickListener confirmGuessNumberListener = view -> {
         TransferObject.getInstance().setConfirmed(true);
-        ((InGameActivity)getActivity()).setViewPager(0);
+
+        if (numberEntered == bombNumber) {
+            ((InGameActivity)getActivity()).setViewPager(0);
+        } else {
+            if (!this.inGame) {
+                TransferObject.getInstance().setBombNumber(numberEntered);
+            }
+            ((InGameActivity)getActivity()).setViewPager(2);
+        }
+
         viewModel.setData(TransferObject.getInstance());
     };
 
-    View.OnClickListener changeGuessNumberListener = view ->  {
+    View.OnClickListener changeGuessNumberListener = view -> {
         TransferObject.getInstance().setConfirmed(false);
         ((InGameActivity)getActivity()).setViewPager(0);
         viewModel.setData(TransferObject.getInstance());

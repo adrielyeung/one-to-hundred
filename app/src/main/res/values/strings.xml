@@ -20,6 +20,7 @@
     <string name="no">No</string>
     <string name="confirm">Confirm</string>
     <string name="change">Change</string>
+    <string name="continue_game">Continue</string>
 
     <!-- Instruction -->
     <string name="instruction_1">1. The game consists of 1 judge and 2–9 players.</string>
@@ -60,8 +61,11 @@
     <string name="exit_round_prompt">Are you sure you want to leave this round?</string>
     <string name="confirm_prompt">Please confirm the number you have just entered is</string>
     <string name="confirm_name">Please confirm your name is %s. If confirm, pass the device to %s.</string>
-    <string name="pass_device_prompt">If correct, please hit "Confirm" and pass the device to %s.</string>
+    <string name="confirm_button_prompt">If correct, hit "Confirm", otherwise hit "Change".</string>
+    <string name="pass_device_prompt">Please pass the device to %s. %s, please hit "Continue".</string>
     <string name="finish_game">BOOM! %s, you have triggered the bomb!</string>
+    <string name="hit_bomb_number_prompt">The number you entered, %d, has triggered the bomb!</string>
+    <string name="forced_trigger_prompt">You were left with range %d to %d, so you were forced to trigger the bomb!</string>
 
     <!-- Error messages -->
     <string name="first_page_error">This is the first page.</string>

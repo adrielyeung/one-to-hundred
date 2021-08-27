@@ -36,6 +36,7 @@ public class EnterNumberFragment extends Fragment {
     // Argument to check whether activity is the GameActivity
     private static final String ARG_IN_GAME = "in_game";
     private boolean inGame;
+    private boolean autoTriggerConfirm = false;
     private int bombNumber;
     private int guessNumber;
     private int rangeMin = 1;
@@ -135,10 +136,15 @@ public class EnterNumberFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (this.inGame) {
+            if (autoTriggerConfirm) {
+                endGame(playerNum, true);
+                autoTriggerConfirm = false;
+                TransferObject.getInstance().setConfirmed(false);
+                viewModel.setData(TransferObject.getInstance());
+                return;
+            }
             viewModel.getData().observe(getViewLifecycleOwner(), transferObject -> {
                 if (transferObject.isConfirmed()) {
-                    transferObject.setConfirmed(false);
-
                     if (guessNumber > 0) {
                         // Check if bombNumber and guessNumber are equal
                         if (guessNumber > bombNumber) {
@@ -146,10 +152,8 @@ public class EnterNumberFragment extends Fragment {
                         } else if (guessNumber < bombNumber) {
                             rangeMin = guessNumber;
                         } else {
-                            Intent endIntent = new Intent(getActivity(), EndActivity.class);
-                            endIntent.putExtra(String.class.getCanonicalName(), nameList.get(playerNum));
-                            startActivity(endIntent);
-                            getActivity().finish();
+                            endGame(playerNum, false);
+                            transferObject.setConfirmed(false);
                             return;
                         }
                     }
@@ -158,14 +162,40 @@ public class EnterNumberFragment extends Fragment {
                     if (playerNum >= nameList.size()) {
                         playerNum = 1;
                     }
+
+                    // Automatic trigger bomb for next player if only 1 number left for choosing
+                    if (rangeMax - rangeMin == 2) {
+                        // This is non-ideal behaviour, it seems this fragment is triggered when
+                        // switching from Confirm to PromptFragment
+                        // Currently, need extra check to ensure PromptFragment displayed first
+                        // before triggering bomb
+                        ((InGameActivity)getActivity()).setViewPager(2);
+                        System.out.println("AutoTriggerConfirm = true");
+                        autoTriggerConfirm = true;
+                        return;
+                    }
+
                     // Set layout for next player
                     setNextPlayerLayout(playerNum);
 
                     // Change listener to nextPlayerListener
                     nextStepButton.setOnClickListener(nextPlayerListener);
+
+                    transferObject.setConfirmed(false);
                 }
             });
         }
+    }
+
+    // Trigger end game (set player name, and whether player triggered bomb or forced to trigger
+    // because left with only 1 number)
+    private void endGame(int playerNum, boolean forcedTrigger) {
+        Intent endIntent = new Intent(getActivity(), EndActivity.class);
+        endIntent.putExtra(String.class.getCanonicalName(), nameList.get(playerNum));
+        endIntent.putExtra(Integer.class.getCanonicalName(), bombNumber);
+        endIntent.putExtra(Boolean.class.getCanonicalName(), forcedTrigger);
+        startActivity(endIntent);
+        getActivity().finish();
     }
 
     // Check if number entered is empty or does not fall in range
