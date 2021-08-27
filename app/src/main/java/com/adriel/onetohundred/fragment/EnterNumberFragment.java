@@ -170,7 +170,6 @@ public class EnterNumberFragment extends Fragment {
                         // Currently, need extra check to ensure PromptFragment displayed first
                         // before triggering bomb
                         ((InGameActivity)getActivity()).setViewPager(2);
-                        System.out.println("AutoTriggerConfirm = true");
                         autoTriggerConfirm = true;
                         return;
                     }
