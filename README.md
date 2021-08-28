@@ -71,7 +71,7 @@ Here the 3 Fragments are used in a ViewPager for the setting up of the game:
 4. EnterNameFragment is displayed to allow each player to input their names, with a dialog to confirm afterwards.
 <img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/name.PNG" alt="StartActivity - EnterNameFragment" width="25%" height="25%">
 <img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/confirm_name_prompt.PNG" alt="StartActivity - EnterNameFragment Prompt" width="25%" height="25%">
-The "back" button may be used to return to MainActivity.
+The "back" button may be used to return to HomeActivity.
 
 ### 8. GameActivity extends InGameActivity
 3 Fragments are used in a ViewPager:
@@ -79,12 +79,18 @@ The "back" button may be used to return to MainActivity.
 <img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/set_bomb.PNG" alt="GameActivity - EnterNumberFragment (Set up bomb)" width="25%" height="25%">
 <img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/game.PNG" alt="GameActivity - EnterNumberFragment (In Game)" width="25%" height="25%">
 2. ConfirmFragment is displayed to prompt confirmation.
+
 3. PromptFragment is displayed to prompt user to pass device to next player.
 
-The "back" button may be used to return to MainActivity.
+The "back" button may be used to return to HomeActivity.
 
 ### 9. EndActivity extends NoTitleActivity
+This is triggered when (1) a player guesses the "bomb" number,
+
 <img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/end.PNG" alt="EndActivity" width="25%" height="25%">
-This is triggered when a player guesses the "bomb" number.
+
+or when (2) a player is forced to trigger the bomb since there is only 1 number left for guessing.
+
+<img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/end_forced.PNG" alt="EndActivity" width="25%" height="25%">
 
 ## Future developments
