@@ -75,9 +75,9 @@ public class PromptFragment extends Fragment {
         viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         if (this.inGame) {
             viewModel.getData().observe(getViewLifecycleOwner(), transferObject -> {
-                        thisPlayerTitle = transferObject.getThisPlayerTitle();
-                        nextPlayerTitle = transferObject.getNextPlayerTitle();
-                    }
+                    thisPlayerTitle = transferObject.getThisPlayerTitle();
+                    nextPlayerTitle = transferObject.getNextPlayerTitle();
+                }
             );
 
             playerTextView.setText(thisPlayerTitle);

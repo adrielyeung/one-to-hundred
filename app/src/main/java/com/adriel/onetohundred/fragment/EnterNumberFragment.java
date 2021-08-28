@@ -171,6 +171,7 @@ public class EnterNumberFragment extends Fragment {
                         // before triggering bomb
                         ((InGameActivity)getActivity()).setViewPager(2);
                         autoTriggerConfirm = true;
+                        transferObject.setConfirmed(false);
                         return;
                     }
 
