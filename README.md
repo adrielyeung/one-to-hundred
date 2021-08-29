@@ -1,14 +1,19 @@
 # one-to-hundred
 Android game app where each player (of 2-9 players) takes turns to guess a "bomb" number in the range 1-100. Built with Java and XML layout files on Android Studio.
 
-## What's new - 27/8/2021
+## What's new - 29/8/2021
 1. Change behaviour of back button during setup, to allow returning to last step.
 2. Automatic trigger of bomb when only 1 number left for guessing.
 3. Audio when bomb triggered.
+4. Add .aab (Android App Bundle) and .apk (Android Application Package) files for installation.
 
 ## How to use
 1. Clone the repository into a local directory.
 2. Open the project directory in Android Studio.
+
+OR
+
+Directly install ```apk/release/app-release.apk``` on an Android device.
 
 ## Description
 The app consists of 9 Activities and 5 Fragments, namely:
@@ -94,3 +99,6 @@ or when (2) a player is forced to trigger the bomb since there is only 1 number 
 <img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/end_forced.PNG" alt="EndActivity" width="25%" height="25%">
 
 ## Future developments
+1. Add a progress bar to show how close to triggering bomb (probability).
+2. Allow saving of user names and scores.
+3. Sign in to account and play with players on other devices.
