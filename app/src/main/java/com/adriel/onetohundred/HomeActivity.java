@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HomeActivity extends NoTitleActivity {
+public class HomeActivity extends AppCompatActivity {
 
     private Button startButton;
     private Button instructionButton;

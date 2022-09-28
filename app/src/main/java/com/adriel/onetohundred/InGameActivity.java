@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-public abstract class InGameActivity extends NoTitleActivity {
+public abstract class InGameActivity extends AppCompatActivity {
 
     protected ViewPager2 viewPager2;
 

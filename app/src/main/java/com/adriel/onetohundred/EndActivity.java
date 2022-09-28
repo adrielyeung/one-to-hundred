@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EndActivity extends NoTitleActivity {
+public class EndActivity extends AppCompatActivity {
 
     private Button mainButton;
     private TextView endMsgTextView, reasonTextView;
