@@ -15,7 +15,7 @@ import com.adriel.onetohundred.fragment.DisplayFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class DisplayActivity extends NoTitleActivity {
+public abstract class DisplayActivity extends AppCompatActivity {
 
     protected List<String> displayContentSequence = new ArrayList<>();
     protected String displayTitle;
