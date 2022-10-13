@@ -35,22 +35,22 @@ The app consists of 9 Activities and 5 Fragments, namely:
 4. EnterNumberFragment
 5. PromptFragment
 
-### 1. DisplayActivity extends NoTitleActivity
+### 1. DisplayActivity
 Provides a template for scrolling through pages of text (DisplayFragments), with a title bar on top.
 
 Abstract methods: ```setDisplayTitle()``` sets text on title bar, ```insertDisplay()``` inserts the list of text to display in sequence.
 
-### 2. InGameActivity extends NoTitleActivity
+### 2. InGameActivity
 Provides a blank template for switching between different fragments (EnterNameFragment, EnterNumberFragment and ConfirmFragment).
 
 Abstract methods: ```setupViewPager()``` sets which Fragments to use.
 
-### 3. MainActivity extends NoTitleActivity
+### 3. MainActivity
 <img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/main.PNG" alt="MainActivity" width="25%" height="25%">
 
 First point of call when user opens the app. A splash screen with game icon and game name.
 
-### 4. HomeActivity extends NoTitleActivity
+### 4. HomeActivity
 <img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/home.PNG" alt="HomeActivity" width="25%" height="25%">
 
 After splash screen, point of call when user opens the app. Links to StartActivity to start game, and InstructionActivity to display instructions.
@@ -85,7 +85,7 @@ The "back" button may be used to return to HomeActivity.
 
 The "back" button may be used to return to HomeActivity.
 
-### 8. EndActivity extends NoTitleActivity
+### 8. EndActivity
 This is triggered when (1) a player guesses the "bomb" number,
 
 <img src="https://github.com/adrielyeung/one-to-hundred/blob/main/images/end.PNG" alt="EndActivity" width="25%" height="25%">
